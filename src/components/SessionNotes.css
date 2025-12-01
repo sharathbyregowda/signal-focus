@@ -1,0 +1,79 @@
+.session-notes {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+}
+
+.session-notes label {
+    display: block;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 0.75rem;
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+}
+
+.session-notes textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    resize: vertical;
+    min-height: 100px;
+    color: var(--color-text-primary);
+    background: var(--color-bg-secondary);
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.session-notes textarea::placeholder {
+    color: var(--color-text-tertiary);
+}
+
+.session-notes textarea:focus {
+    outline: none;
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.notes-meta {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    text-align: right;
+    min-height: 1.2rem;
+}
+
+.notes-meta .saving {
+    color: var(--color-accent-warning);
+    font-weight: var(--font-weight-medium);
+}
+
+.notes-meta .saved {
+    color: var(--color-accent-success);
+}
+
+
+@media (max-width: 768px) {
+    .session-notes {
+        padding: var(--space-md);
+        margin-top: var(--space-md);
+    }
+
+    .session-notes label {
+        font-size: var(--font-size-sm);
+    }
+
+    .session-notes textarea {
+        font-size: var(--font-size-sm);
+        min-height: 80px;
+        padding: var(--space-sm);
+    }
+
+    .notes-meta {
+        font-size: var(--font-size-xs);
+    }
+}

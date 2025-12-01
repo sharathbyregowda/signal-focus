@@ -1,0 +1,179 @@
+.focus-mode-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    animation: fadeIn var(--transition-base) ease-out;
+}
+
+.focus-mode-container {
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+}
+
+.focus-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    background: var(--color-bg-elevated);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    font-size: var(--font-size-2xl);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.focus-close-btn:hover {
+    background: var(--color-accent-danger);
+    color: white;
+    border-color: var(--color-accent-danger);
+    transform: rotate(90deg);
+}
+
+.focus-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+}
+
+.focus-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-sm);
+}
+
+.focus-progress {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.focus-task {
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-3xl);
+    margin-bottom: var(--space-2xl);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.focus-task-text {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    text-align: center;
+    line-height: var(--line-height-relaxed);
+}
+
+.focus-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    margin-bottom: var(--space-xl);
+}
+
+.focus-complete-btn {
+    flex: 1;
+    max-width: 300px;
+}
+
+.focus-dots {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    align-items: center;
+}
+
+.focus-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: var(--radius-full);
+    background: var(--color-bg-elevated);
+    border: 2px solid var(--color-border);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    padding: 0;
+}
+
+.focus-dot:hover {
+    border-color: var(--color-accent-primary);
+    transform: scale(1.2);
+}
+
+.focus-dot.active {
+    background: var(--gradient-primary);
+    border-color: var(--color-accent-primary);
+    width: 32px;
+}
+
+.focus-empty {
+    text-align: center;
+    padding: var(--space-3xl);
+}
+
+.focus-empty-icon {
+    font-size: 5rem;
+    margin-bottom: var(--space-xl);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.focus-empty-title {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    background: var(--gradient-success);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-md);
+}
+
+.focus-empty-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2xl);
+}
+
+@media (max-width: 768px) {
+    .focus-mode-overlay {
+        padding: var(--space-md);
+    }
+
+    .focus-task {
+        padding: var(--space-xl);
+        min-height: 150px;
+    }
+
+    .focus-task-text {
+        font-size: var(--font-size-xl);
+    }
+
+    .focus-actions {
+        flex-direction: column;
+    }
+
+    .focus-complete-btn {
+        max-width: 100%;
+    }
+}

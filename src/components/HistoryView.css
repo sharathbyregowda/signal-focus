@@ -1,0 +1,183 @@
+.history-view {
+    margin-top: var(--space-2xl);
+}
+
+.history-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.history-item {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.history-item:hover {
+    border-color: var(--color-text-tertiary);
+}
+
+.history-item-header {
+    width: 100%;
+    padding: var(--space-lg);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    transition: background var(--transition-base);
+}
+
+.history-item-header:hover {
+    background: var(--color-bg-elevated);
+}
+
+.history-date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+}
+
+.history-date-text {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+}
+
+.history-task-count {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+}
+
+.history-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.completion-badge {
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+.completion-badge[data-rate="high"] {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-accent-success);
+}
+
+.completion-badge[data-rate="medium"] {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--color-accent-warning);
+}
+
+.completion-badge[data-rate="low"] {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--color-accent-danger);
+}
+
+.expand-icon {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-tertiary);
+    font-weight: var(--font-weight-light);
+    width: 24px;
+    text-align: center;
+}
+
+.history-item-details {
+    padding: 0 var(--space-lg) var(--space-lg);
+    animation: fadeIn var(--transition-base) ease-out;
+}
+
+.history-tasks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.history-task {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-secondary);
+}
+
+.history-task.completed {
+    opacity: 0.7;
+}
+
+.history-task-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+}
+
+.history-task.completed .history-task-icon {
+    color: var(--color-accent-success);
+}
+
+.history-task-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-normal);
+}
+
+.history-task.completed .history-task-text {
+    text-decoration: line-through;
+    color: var(--color-text-tertiary);
+}
+
+.session-notes-display {
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-primary);
+}
+
+.session-notes-display h4 {
+    margin: 0 0 var(--space-sm) 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+}
+
+.session-notes-display p {
+    margin: 0;
+    color: var(--color-text-primary);
+    line-height: var(--line-height-relaxed);
+    white-space: pre-wrap;
+    font-size: var(--font-size-sm);
+}
+
+@media (max-width: 768px) {
+    .history-item-header {
+        padding: var(--space-md);
+    }
+
+    .history-stats {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+}

@@ -1,0 +1,96 @@
+.task-input-container {
+    margin-bottom: var(--space-xl);
+}
+
+.task-input-form {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+}
+
+.task-input {
+    flex: 1;
+    padding: var(--space-md);
+    font-size: var(--font-size-base);
+    background: var(--color-bg-tertiary);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    color: var(--color-text-primary);
+    transition: all var(--transition-base);
+}
+
+.task-input:focus {
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+    outline: none;
+}
+
+.task-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.task-input-btn {
+    padding: var(--space-md) var(--space-xl);
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    white-space: nowrap;
+}
+
+.task-input-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.task-input-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.task-input-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    padding: 0 var(--space-sm);
+}
+
+.text-muted {
+    color: var(--color-text-tertiary);
+}
+
+.text-warning {
+    color: var(--color-accent-warning);
+    font-weight: var(--font-weight-medium);
+}
+
+@media (max-width: 768px) {
+    .task-input-container {
+        margin-bottom: var(--space-md);
+    }
+
+    .task-input-form {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    .task-input {
+        font-size: var(--font-size-base);
+        padding: var(--space-sm);
+    }
+
+    .task-input-btn {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .task-input-info {
+        font-size: var(--font-size-xs);
+    }
+}

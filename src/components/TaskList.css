@@ -1,0 +1,267 @@
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.task-item {
+    position: relative;
+    /* For absolute positioning of celebration */
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    cursor: grab;
+}
+
+.task-item:active {
+    cursor: grabbing;
+}
+
+.task-item.dragging {
+    opacity: 0.5;
+    transform: scale(0.95);
+    cursor: grabbing;
+}
+
+.task-item.drag-over {
+    border-color: var(--color-accent-primary);
+    background: rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.drag-handle {
+    color: var(--color-text-tertiary);
+    font-size: var(--font-size-lg);
+    line-height: 1;
+    cursor: grab;
+    user-select: none;
+    padding: var(--space-xs);
+    transition: color var(--transition-base);
+}
+
+.drag-handle:hover {
+    color: var(--color-accent-primary);
+}
+
+.task-item:active .drag-handle {
+    cursor: grabbing;
+}
+
+.task-item:hover {
+    border-color: var(--color-text-tertiary);
+    transform: translateX(4px);
+}
+
+.task-item.completed {
+    opacity: 0.6;
+    background: var(--color-bg-secondary);
+    cursor: default;
+}
+
+.task-item.completed .drag-handle {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: var(--color-text-tertiary);
+}
+
+.task-checkbox-container {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.task-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.task-checkbox-label {
+    cursor: pointer;
+    display: block;
+}
+
+.checkmark {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-elevated);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.task-checkbox:hover~.task-checkbox-label .checkmark {
+    border-color: var(--color-accent-primary);
+}
+
+.task-checkbox:checked~.task-checkbox-label .checkmark {
+    background: var(--gradient-success);
+    border-color: var(--color-accent-success);
+}
+
+.task-checkbox:checked~.task-checkbox-label .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 3px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    animation: checkmark var(--transition-base) ease-out;
+}
+
+.task-text {
+    flex: 1;
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    user-select: none;
+    line-height: var(--line-height-relaxed);
+}
+
+.task-delete-btn {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-text-tertiary);
+    border: none;
+    font-size: var(--font-size-2xl);
+    line-height: 1;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-delete-btn:hover {
+    background: var(--color-accent-danger);
+    color: white;
+    transform: scale(1.1);
+}
+
+.empty-state-philosophy {
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+    background: var(--color-bg-elevated);
+    border-left: 3px solid var(--color-accent-primary);
+    border-radius: var(--radius-md);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.philosophy-quote {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+    font-style: italic;
+}
+
+.philosophy-quote strong {
+    color: var(--color-accent-primary);
+    font-weight: var(--font-weight-semibold);
+    font-style: normal;
+}
+
+.philosophy-attribution {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+}
+
+/* Task Completion Celebration */
+.task-celebration {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 8px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.celebration-emoji {
+    font-size: 1.5rem;
+    animation: celebrationPop 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.celebration-emoji:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.celebration-emoji:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.celebration-emoji:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+@keyframes celebrationPop {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-40px) scale(0.8);
+    }
+}
+
+@media (max-width: 768px) {
+    .task-item {
+        padding: var(--space-sm);
+        gap: var(--space-sm);
+    }
+
+    .task-text {
+        font-size: var(--font-size-sm);
+    }
+
+    .task-delete-btn {
+        min-width: 36px;
+        min-height: 36px;
+    }
+
+    .task-celebration {
+        right: 40px;
+        gap: 4px;
+    }
+
+    .celebration-emoji {
+        font-size: 1.25rem;
+    }
+
+    .empty-state-philosophy {
+        padding: var(--space-md);
+        margin-top: var(--space-md);
+    }
+
+    .philosophy-quote {
+        font-size: var(--font-size-sm);
+    }
+}

@@ -1,0 +1,122 @@
+.morning-briefing-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.morning-briefing-container {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-xl);
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.morning-briefing-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.morning-briefing-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+    animation: bounceIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.morning-briefing-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+}
+
+.morning-briefing-subtitle {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+}
+
+.morning-briefing-subtitle strong {
+    color: var(--color-accent-primary);
+}
+
+.morning-briefing-tasks {
+    margin-bottom: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.morning-briefing-task-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.morning-briefing-task-item:hover {
+    background: var(--color-bg-tertiary);
+    border-color: var(--color-accent-primary);
+}
+
+.morning-briefing-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.morning-briefing-task-text {
+    flex: 1;
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+}
+
+.morning-briefing-actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-direction: column;
+}
+
+.morning-briefing-actions .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .morning-briefing-container {
+        padding: var(--space-xl);
+        max-height: 90vh;
+    }
+
+    .morning-briefing-icon {
+        font-size: 2.5rem;
+    }
+
+    .morning-briefing-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .morning-briefing-subtitle {
+        font-size: var(--font-size-sm);
+    }
+}
